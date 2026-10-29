@@ -12,7 +12,7 @@ days:
         title: "Hands-on: training a model from scratch with annbatch"
         type: "hands-on"
       - time: "14:50"
-        title: "Questions"
+        title: "Questions and outlook"
         type: "welcome"
       - time: "15:00"
         title: "End of workshop"
