@@ -63,7 +63,7 @@ python -c "import anndata, annbatch, mantispy, scanpy, torch; print('setup ok')"
 
 With pixi, run it as `pixi run python -c "..."`. If it prints `setup ok`, the software
 side is done. If it prints an error, copy the whole message and post it on
-[Zulip](https://scverse.zulipchat.com/) with your operating system.
+[Zulip](https://scverse.zulipchat.com/#narrow/channel/649559-2026-11.3A-Workshop-SBI2) with your operating system.
 
 ## Step 3: download the data
 
@@ -104,5 +104,5 @@ Jupyter knows about.
 **The download fails with "403 Forbidden".** Download the file with your browser, `curl`
 or `wget` and put it into `notebooks/data/`.
 
-**Anything else.** Post it on [Zulip](https://scverse.zulipchat.com/) with your operating
+**Anything else.** Post it on [Zulip](https://scverse.zulipchat.com/#narrow/channel/649559-2026-11.3A-Workshop-SBI2) with your operating
 system, what you ran, and the full error text.
