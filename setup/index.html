@@ -1,0 +1,42 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Setup · scverse x SBI2 2026</title><meta name=description content="A two-hour hands-on workshop on storing single-cell morphology data in AnnData, training models on it with annbatch, and using pretrained image models."><link rel=icon type=image/svg+xml href=/sbi2_2026/img/favicon/favicon.svg><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css crossorigin=anonymous><link rel=stylesheet href=/sbi2_2026/scss/main.min.77de9d2e870941d7d5e4904993371720337f9cad00e8efae2f18d035f49d33b1.css><style>:root{--accent:#2c5282;--accent-dark:#1f3d63;--gradient-start:#333333;--gradient-end:#333333;--highlight:#e2e8f0}</style><meta property="og:url" content="https://scverse.org/sbi2_2026/setup/"><meta property="og:site_name" content="scverse x SBI2 2026"><meta property="og:title" content="Setup"><meta property="og:description" content="Everything in this workshop runs on your own laptop, without a GPU. You install one environment, register it as one Jupyter kernel, and download one data file. Please do this before the workshop, because the conference wifi will not handle everyone downloading at once.
+Each step ends with a check you can run."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"></head><body><a class=skip-link href=#main-content>Skip to main content</a><header class=site-nav><div class=container><nav class="navbar navbar-expand-lg" aria-label="Site navigation"><a class=navbar-brand href=https://scverse.org/sbi2_2026/><img src=/sbi2_2026/img/logo/scverse_symbol.svg alt width=28 height=28>
+<span>scverse</span>
+<span class="brand-separator mx-1">×</span>
+<span class=brand-event>SBI2 2026</span>
+</a><button class="navbar-toggler border-0" type=button data-bs-toggle=collapse data-bs-target=#site-nav-menu aria-controls=site-nav-menu aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse justify-content-end" id=site-nav-menu><ul class="navbar-nav gap-1 align-items-lg-center"><li class=nav-item><a class=nav-link href=/sbi2_2026/#about>About</a></li><li class=nav-item><a class=nav-link href=/sbi2_2026/#schedule>Schedule</a></li><li class=nav-item><a class=nav-link href=/sbi2_2026/#contact>Contact</a></li></ul></div></nav></div></header><main id=main-content><header class=page-header><div class=page-header__inner><h1 class="page-header__title gradient-text">Setup</h1><p class=page-header__subtitle>One environment, one kernel, one data file. About twenty minutes, most of it unattended.</p></div></header><section class=section><div class=section-inner><div class=prose><p>Everything in this workshop runs on your own laptop, without a GPU. You install one
+environment, register it as one Jupyter kernel, and download one data file. Please do
+this before the workshop, because the conference wifi will not handle everyone
+downloading at once.</p><p>Each step ends with a check you can run.</p><p>You need about 5 GB of free disk space and at least 8 GB of RAM (16 GB is better).</p><h2 id=step-1-get-the-workshop-materials>Step 1: get the workshop materials</h2><p>The notebooks and the environment files are in the
+<a href=https://github.com/scverse/202611_workshop_SBI2>materials repository</a>.</p><p>With git:</p><pre tabindex=0><code>git clone https://github.com/scverse/202611_workshop_SBI2.git
+cd 202611_workshop_SBI2
+</code></pre><p>Without git, open the <a href=https://github.com/scverse/202611_workshop_SBI2>repository</a> in
+your browser, click the green <strong>Code</strong> button, choose <strong>Download ZIP</strong>, unzip it, and open
+a terminal in that folder.</p><p>You are in the right place if you can see <code>environment.yml</code>, <code>pixi.toml</code> and a
+<code>notebooks</code> folder.</p><h2 id=step-2-create-the-environment>Step 2: create the environment</h2><p>Pick one of the two ways.</p><p><strong>With pixi</strong> (recommended, no conda needed). Install pixi from
+<a href=https://pixi.sh>pixi.sh</a>, then run:</p><pre tabindex=0><code>pixi run lab
+</code></pre><p>This installs the environment, registers the <code>scverse-sbi2</code> kernel and starts
+JupyterLab.</p><p><strong>With conda.</strong> If you already have a working conda (Anaconda, Miniconda or Miniforge):</p><pre tabindex=0><code>conda env create -f environment.yml
+conda activate scverse-sbi2
+python -m ipykernel install --user --name scverse-sbi2
+</code></pre><h3 id=check>Check</h3><pre tabindex=0><code>python -c &#34;import anndata, annbatch, mantispy, scanpy, torch; print(&#39;setup ok&#39;)&#34;
+</code></pre><p>With pixi, run it as <code>pixi run python -c "..."</code>. If it prints <code>setup ok</code>, the software
+side is done. If it prints an error, copy the whole message and post it on
+<a href=https://scverse.zulipchat.com/>Zulip</a> with your operating system.</p><h2 id=step-3-download-the-data>Step 3: download the data</h2><p>The notebooks download the data themselves, but please do it in advance on a connection
+you trust:</p><ul><li><a href=https://exampledata.scverse.org/sbi2-cytodata/workshop/workshop_small.h5ad>workshop_small.h5ad</a>, 496 MB</li></ul><p>Put it into <code>notebooks/data/</code>. The notebooks check the file and skip the download if it
+is already there.</p><p>The full dataset (98,345 cells, 4.2 GB) and its pre-shuffled annbatch version (4.9 GB)
+are optional, for the last part of the workshop and for trying things at home. The
+<a href=https://github.com/scverse/202611_workshop_SBI2>materials repository</a> lists them.</p><h2 id=starting-jupyter>Starting Jupyter</h2><pre tabindex=0><code>pixi run lab
+</code></pre><p>or, with conda:</p><pre tabindex=0><code>conda activate scverse-sbi2
+jupyter lab
+</code></pre><p>Open a notebook and check the top right corner. It has to say <strong>scverse-sbi2</strong>. If it
+says something else, click it and pick <em>scverse-sbi2</em>.</p><h2 id=troubleshooting>Troubleshooting</h2><p><strong>Jupyter starts but the kernel is missing.</strong> With conda, check that the last command in
+step 2 ran while <code>scverse-sbi2</code> was active. <code>jupyter kernelspec list</code> shows the kernels
+Jupyter knows about.</p><p><strong>The download fails with "403 Forbidden".</strong> Download the file with your browser, <code>curl</code>
+or <code>wget</code> and put it into <code>notebooks/data/</code>.</p><p><strong>Anything else.</strong> Post it on <a href=https://scverse.zulipchat.com/>Zulip</a> with your operating
+system, what you ran, and the full error text.</p></div></div></section></main><footer class=site-footer><div class=footer-inner><div><a href=https://scverse.org target=_blank rel=noopener>scverse® core team</a>
+· 2026
+· Site built from
+<a href=https://github.com/scverse/event-template target=_blank rel=noopener>event-template</a></div><nav class=footer-links aria-label="Footer links"><a href=https://scverse.org/about/code_of_conduct/ target=_blank rel=noopener>Code of Conduct</a>
+<a href=https://github.com/scverse/sbi2_2026 target=_blank rel=noopener>GitHub</a>
+<a href=https://scverse.zulipchat.com/ target=_blank rel=noopener>Zulip</a></nav></div></footer><script src=https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js crossorigin=anonymous></script><script src=/sbi2_2026/js/main.c8ae50547f6c75872d1d8df618b11d9e5de8c60c3e4feee27195d2743b6d8df9.js></script></body></html>
