@@ -1,0 +1,20 @@
+# 'github' is used to fetch the avatar automatically (leave blank to hide avatar).
+groups:
+  - name: "Instructors"
+    members:
+      - name: "Tim Treis"
+        affiliation: "Theis Lab, Helmholtz Munich / scverse"
+        github: "timtreis"
+        website: ""
+
+      - name: "Ilan Gold"
+        affiliation: "scverse"
+        github: "ilan-gold"
+        website: ""
+
+  - name: "Hosted by"
+    members:
+      - name: "SBI2"
+        affiliation: "Society for Biomolecular Imaging and Informatics"
+        github: ""
+        website: "https://sbi2.org/"

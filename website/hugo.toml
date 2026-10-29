@@ -1,0 +1,49 @@
+baseURL = "https://scverse.org/sbi2_2026/"
+languageCode = "en-us"
+title = "scverse x SBI2 2026"
+
+# ─── Event identity ──────────────────────────────────────────────────────────
+[params]
+  eventName     = "scverse x SBI2 2026"
+  eventSeries   = "Deep learning on morphology data within the scverse ecosystem"
+  eventTagline  = "A two-hour hands-on workshop on storing single-cell morphology data in AnnData, training models on it with annbatch, and using pretrained image models."
+  eventDates    = "Monday, November 2, 2026, 13:00 - 15:00"
+  eventStart    = "2026-11-02"  # ISO date, used for calendar links
+  eventEnd      = "2026-11-02"
+  eventLocation = "Boston, MA, USA"
+  venueName     = "SBI2 13th Annual Conference, Salon F, Renaissance Boston Waterfront Hotel"
+  venueMapURL   = "https://www.google.com/maps/search/?api=1&query=Renaissance+Boston+Waterfront+Hotel"
+
+  calendarURL   = ""
+  githubRepo    = "https://github.com/scverse/sbi2_2026"
+  zulipChannel  = "https://scverse.zulipchat.com/"
+  linkedinURL   = "https://www.linkedin.com/company/scverse/"
+  materialsRepo = "https://github.com/scverse/202611_workshop_SBI2"
+
+  # Registration runs through SBI2, so no CTA button.
+  [params.cta]
+    enabled = false
+    label = ""
+    url   = ""
+
+# ─── Palette: neutral, one quiet accent for links and buttons ────────────────
+  [params.theme]
+    accent        = "#2c5282"
+    accentDark    = "#1f3d63"
+    gradientStart = "#333333"   # gradient-clipped text renders flat
+    gradientEnd   = "#333333"
+    highlight     = "#e2e8f0"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.goldmark.extensions.typographer]
+  disable = true
+
+[markup.highlight]
+  noClasses = false
+  style = "github"
+
+[taxonomies]
+
+disableKinds = ["taxonomy", "term", "RSS"]

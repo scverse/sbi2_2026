@@ -1,0 +1,26 @@
+<section class="hero" aria-label="Event hero">
+  <div class="hero__content">
+    {{ with .Site.Params.eventSeries }}
+      <p class="hero__series">{{ . }}</p>
+    {{ end }}
+
+    <h1 class="hero__title">{{ .Site.Params.eventName }}</h1>
+
+    <p class="hero__meta">
+      {{ .Site.Params.eventDates }}
+      {{ with .Site.Params.eventLocation }} · {{ . }}{{ end }}
+    </p>
+
+    {{ with .Site.Params.eventTagline }}
+      <p class="hero__tagline">{{ . }}</p>
+    {{ end }}
+
+    {{ with .Site.Params.calendarURL }}
+      <div class="hero__actions">
+        <a href="{{ . }}" class="btn-outline-accent" target="_blank" rel="noopener">
+          <i class="bi bi-calendar-event" aria-hidden="true"></i> Add to calendar
+        </a>
+      </div>
+    {{ end }}
+  </div>
+</section>

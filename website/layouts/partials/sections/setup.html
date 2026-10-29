@@ -1,0 +1,21 @@
+{{ with .Site.GetPage "/setup" }}
+<section id="setup" class="section section--alt">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2 class="section-title">{{ .Title }}</h2>
+    </div>
+    <div class="section-body prose">
+      {{ .Summary }}
+      <p>
+        <a href="{{ .RelPermalink }}" class="btn-accent">Full setup instructions</a>
+        <a href="{{ $.Site.Params.zulipChannel }}" class="btn-outline-accent" target="_blank" rel="noopener">Join the Zulip channel</a>
+        {{ with $.Site.Params.materialsRepo }}
+          <a href="{{ . }}" class="btn-outline-accent" target="_blank" rel="noopener">
+            <i class="bi bi-github" aria-hidden="true"></i> Workshop materials
+          </a>
+        {{ end }}
+      </p>
+    </div>
+  </div>
+</section>
+{{ end }}
